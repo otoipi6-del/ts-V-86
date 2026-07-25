@@ -603,11 +603,10 @@
     }
   </style>
 <base target="_blank">
-<base target="_blank">
 </head>
 <body>
 
-  <!-- HEADER (fixed, вынесен за пределы .app) -->
+  <!-- HEADER -->
   <header class="header">
     <div class="logo-area">
       <img src="images/logo.png" alt="ТС Волгоградская" class="logo" id="logoImg">
@@ -623,7 +622,6 @@
 
     <!-- TABS -->
     <div id="tabContacts" class="tab-content active two-col">
-      <!-- card 1 -->
       <div class="card">
         <div class="card-title">РАЗВИН ИВАН ЮРЬЕВИЧ</div>
         <div class="card-sub">Председатель правления</div>
@@ -634,7 +632,6 @@
         <p style="margin-top: 6px;"><span class="badge">🗓 Приемный день</span> каждый вторник 18:30 – 20:30</p>
       </div>
 
-      <!-- card 2 -->
       <div class="card">
         <div class="card-title">АЛЬХОВСКАЯ ЕКАТЕРИНА ДМИТРИЕВНА</div>
         <div class="card-sub">Главный бухгалтер</div>
@@ -644,7 +641,6 @@
         </div>
       </div>
 
-      <!-- card 3 -->
       <div class="card">
         <div class="card-title">Члены Правления</div>
         <div class="member-grid">
@@ -697,7 +693,7 @@
     </div>
 
     <!-- TAB PAYMENTS -->
-    <div id="tabPayments" class="tab-content">
+    <div id="tabPayments" class="tab-content two-col">
       <div class="card">
         <div class="card-title">Ежемесячный членский взнос</div>
         <p><strong>Путь в ЕРИП:</strong></p>
@@ -734,7 +730,7 @@
     </div>
 
     <!-- TAB DOCUMENTS -->
-    <div id="tabDocuments" class="tab-content">
+    <div id="tabDocuments" class="tab-content two-col">
       <div class="card">
         <div class="card-title">УСТАВ</div>
         <a href="documents/ustav.pdf" target="_blank" class="doc-link">📄 Посмотреть / Скачать</a>
@@ -839,7 +835,6 @@
           this.style.display = 'none';
           if (fallback) fallback.style.display = 'inline-flex';
         });
-        // trigger check if already broken (cached error)
         if (logo.complete && logo.naturalWidth === 0) {
           logo.style.display = 'none';
           if (fallback) fallback.style.display = 'inline-flex';
