@@ -41,8 +41,9 @@
       left: 0;
       right: 0;
       z-index: 200;
-      background: #f0f4fa;
-      border-bottom: 2px solid #c8d2de;
+      background: #b8c4d4;
+      border-top: 3px solid #1a4cbf;
+      border-bottom: 2px solid #a0aec0;
       padding: 10px 16px;
       padding-top: env(safe-area-inset-top, 10px);
       display: flex;
@@ -55,13 +56,14 @@
       width: 100%;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     body.dark .header {
-      background: #0d1424ee;
-      border-bottom-color: #1f2a40;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      background: #0d1424;
+      border-top: 3px solid #5b9eff;
+      border-bottom: 2px solid #1f2a40;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
 
     .app {
@@ -95,11 +97,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
       min-width: 0;
-      color: #0a0f1a;
+      color: #0a1a3a;
     }
 
     body.dark .header-title {
-      color: #e8edf4;
+      color: #8bb8ff;
     }
 
     .theme-toggle {
@@ -140,11 +142,12 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: #f0f4fa;
-      border-top: 2px solid #c8d2de;
+      background: #b8c4d4;
+      border-top: 2px solid #a0aec0;
+      border-bottom: 3px solid #1a4cbf;
       padding: 6px 0 env(safe-area-inset-bottom);
       z-index: 100;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
       max-width: 1280px;
       margin: 0 auto;
       width: 100%;
@@ -153,6 +156,7 @@
     body.dark .nav {
       background: #0d1424;
       border-top-color: #1f2a40;
+      border-bottom-color: #5b9eff;
       box-shadow: 0 -2px 12px rgba(0,0,0,0.3);
     }
 
@@ -162,7 +166,7 @@
       padding: 8px 4px 4px;
       font-weight: 700;
       font-size: 0.8rem;
-      color: #4a5568;
+      color: #1a2a4a;
       letter-spacing: 0.5px;
       cursor: pointer;
       border-bottom: 3px solid transparent;
@@ -178,7 +182,7 @@
     }
 
     .nav-btn.active {
-      color: #1a4cbf;
+      color: #0a1a3a;
       border-bottom-color: #1a4cbf;
     }
 
