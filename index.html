@@ -79,6 +79,7 @@
       display: flex;
       align-items: center;
       flex-shrink: 0;
+      gap: 8px;
     }
 
     .logo {
@@ -87,6 +88,21 @@
       max-width: 80px;
       object-fit: contain;
       display: block;
+    }
+
+    .logo-fallback {
+      display: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.7rem;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.25);
     }
 
     .header-title {
@@ -146,7 +162,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: #b8c4d4;
+      background: #6b7d94;
       padding: 6px 0 env(safe-area-inset-bottom);
       z-index: 100;
       box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
@@ -157,25 +173,25 @@
     }
 
     body.dark .nav {
-      background: #0d1424;
+      background: #070c18;
       box-shadow: 0 -2px 12px rgba(0,0,0,0.3);
     }
 
     .nav-btn {
       background: transparent;
-      border: none;
+      border: 2px solid transparent;
       padding: 6px 4px 4px;
       font-weight: 700;
       font-size: 0.7rem;
       color: #1a2a4a;
       letter-spacing: 0.3px;
       cursor: pointer;
-      border-bottom: 3px solid transparent;
+      border-radius: 8px;
       transition: 0.15s;
       flex: 1;
       text-align: center;
-      border-radius: 0;
       min-width: 0;
+      margin: 0 2px;
     }
 
     body.dark .nav-btn {
@@ -183,13 +199,15 @@
     }
 
     .nav-btn.active {
-      color: #0a1a3a;
-      border-bottom-color: #1a4cbf;
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.12);
     }
 
     body.dark .nav-btn.active {
-      color: #5b9eff;
-      border-bottom-color: #5b9eff;
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.08);
     }
 
     .nav-btn:active {
@@ -357,6 +375,47 @@
       margin-top: 8px;
     }
 
+    /* ERIP steps */
+    .erip-steps {
+      margin: 8px 0;
+    }
+    .erip-step {
+      padding: 3px 0 3px 22px;
+      position: relative;
+      color: #1a2538;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    body.dark .erip-step {
+      color: #c8d6e8;
+    }
+    .erip-step::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #1a4cbf;
+      font-weight: 700;
+    }
+    body.dark .erip-step::before {
+      color: #5b9eff;
+    }
+    .erip-step:first-child::before {
+      content: '▸';
+    }
+
+    /* Two-column layout on tablet/desktop */
+    @media (min-width: 768px) {
+      .tab-content.active.two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-content: start;
+      }
+      .tab-content.active.two-col .card {
+        margin-bottom: 0;
+      }
+    }
+
     @media (max-width: 480px) {
       body {
         padding-top: 58px;
@@ -378,6 +437,11 @@
       .logo {
         height: 22px;
         max-width: 50px;
+      }
+      .logo-fallback {
+        width: 22px;
+        height: 22px;
+        font-size: 0.6rem;
       }
       .header-title {
         font-size: clamp(0.72rem, 4.5vw, 0.95rem);
@@ -423,6 +487,11 @@
         height: 32px;
         max-width: 100px;
       }
+      .logo-fallback {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+      }
       .header-title {
         font-size: 1.3rem;
       }
@@ -465,6 +534,11 @@
         height: 36px;
         max-width: 120px;
       }
+      .logo-fallback {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+      }
       .header-title {
         font-size: 1.6rem;
       }
@@ -485,6 +559,11 @@
       }
       .logo {
         height: 42px;
+      }
+      .logo-fallback {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
       }
     }
 
@@ -525,7 +604,6 @@
   </style>
 <base target="_blank">
 <base target="_blank">
-<base target="_blank">
 </head>
 <body>
 
@@ -533,6 +611,7 @@
   <header class="header">
     <div class="logo-area">
       <img src="images/logo.png" alt="ТС Волгоградская" class="logo" id="logoImg">
+      <span class="logo-fallback" id="logoFallback">ТС</span>
     </div>
     <div class="header-title">ТС ВОЛГОГРАДСКАЯ, 86</div>
     <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
@@ -543,7 +622,7 @@
   <div class="app" id="app">
 
     <!-- TABS -->
-    <div id="tabContacts" class="tab-content active">
+    <div id="tabContacts" class="tab-content active two-col">
       <!-- card 1 -->
       <div class="card">
         <div class="card-title">РАЗВИН ИВАН ЮРЬЕВИЧ</div>
@@ -578,7 +657,7 @@
     </div>
 
     <!-- TAB SERVICES -->
-    <div id="tabServices" class="tab-content">
+    <div id="tabServices" class="tab-content two-col">
       <div class="card">
         <div class="card-title">Техническое обслуживание</div>
         <p><strong>«Коммунспецсервис»</strong></p>
@@ -622,7 +701,16 @@
       <div class="card">
         <div class="card-title">Ежемесячный членский взнос</div>
         <p><strong>Путь в ЕРИП:</strong></p>
-        <p>Система «Расчёт» (ЕРИП) → Коммунальные платежи → Товарищества собственников → г. Минск → Первомайский район → Волгоградская, 86 → Членские взносы → Лицевой счёт (№ квартиры).</p>
+        <div class="erip-steps">
+          <div class="erip-step">Система «Расчёт» (ЕРИП)</div>
+          <div class="erip-step">Коммунальные платежи</div>
+          <div class="erip-step">Товарищества собственников</div>
+          <div class="erip-step">г. Минск</div>
+          <div class="erip-step">Первомайский район</div>
+          <div class="erip-step">Волгоградская, 86</div>
+          <div class="erip-step">Членские взносы</div>
+          <div class="erip-step">Лицевой счёт (№ квартиры)</div>
+        </div>
         <p><span class="badge">Код услуги</span> <strong>5272851</strong> Членские взносы</p>
         <p>Оплата до <strong>25 числа</strong>.</p>
         <p>Тариф: <strong>0,68 руб/м²</strong> (Протокол от 21.10.2025)</p>
@@ -631,7 +719,15 @@
       <div class="card">
         <div class="card-title">Коммунальные платежи (квитанция РСЦ)</div>
         <p><strong>Путь в ЕРИП:</strong></p>
-        <p>Система «Расчёт» (ЕРИП) / Коммунальные платежи / Жилищно-коммунальные услуги / Минск / Центр ИТ Мингорисполкома / Платежи ТС ЖСПК АИС Расчёт-ЖКУ / Лицевой счёт.</p>
+        <div class="erip-steps">
+          <div class="erip-step">Система «Расчёт» (ЕРИП)</div>
+          <div class="erip-step">Коммунальные платежи</div>
+          <div class="erip-step">Жилищно-коммунальные услуги</div>
+          <div class="erip-step">Минск</div>
+          <div class="erip-step">Центр ИТ Мингорисполкома</div>
+          <div class="erip-step">Платежи ТС ЖСПК АИС Расчёт-ЖКУ</div>
+          <div class="erip-step">Лицевой счёт</div>
+        </div>
         <p><span class="badge">Код услуги</span> <strong>4420861</strong></p>
         <p>Оплата до <strong>25 числа</strong>.</p>
       </div>
@@ -737,10 +833,17 @@
 
       // logo fallback
       const logo = document.getElementById('logoImg');
+      const fallback = document.getElementById('logoFallback');
       if (logo) {
         logo.addEventListener('error', function() {
           this.style.display = 'none';
+          if (fallback) fallback.style.display = 'inline-flex';
         });
+        // trigger check if already broken (cached error)
+        if (logo.complete && logo.naturalWidth === 0) {
+          logo.style.display = 'none';
+          if (fallback) fallback.style.display = 'inline-flex';
+        }
       }
     })();
   </script>
