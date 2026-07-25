@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>ТС Волгоградская, 86</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1e293b">
@@ -26,7 +26,12 @@
       flex-direction: column;
       align-items: center;
       padding-top: 100px;
-      padding-top: env(safe-area-inset-top, 100px);
+    }
+
+    @supports (padding-top: env(safe-area-inset-top)) {
+      body {
+        padding-top: calc(100px + env(safe-area-inset-top));
+      }
     }
 
     body.dark {
@@ -94,11 +99,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
       min-width: 0;
-      color: #000000;
+      color: #0a0f1a;
     }
 
     body.dark .header-title {
-      color: #000000;
+      color: #e8edf4;
     }
 
     .theme-toggle {
@@ -352,6 +357,14 @@
     }
 
     @media (max-width: 480px) {
+      body {
+        padding-top: 80px;
+      }
+      @supports (padding-top: env(safe-area-inset-top)) {
+        body {
+          padding-top: calc(80px + env(safe-area-inset-top));
+        }
+      }
       .member-grid {
         grid-template-columns: 1fr;
       }
@@ -381,13 +394,14 @@
         font-size: 0.6rem;
         padding: 4px 2px 3px;
       }
-      body {
-        padding-top: 80px;
-        padding-top: env(safe-area-inset-top, 80px);
-      }
     }
 
     @media (min-width: 768px) {
+      @supports (padding-top: env(safe-area-inset-top)) {
+        body {
+          padding-top: calc(96px + env(safe-area-inset-top));
+        }
+      }
       .app {
         padding: 0 32px 90px;
       }
@@ -411,13 +425,14 @@
         height: 34px;
         font-size: 1.3rem;
       }
-      body {
-        padding-top: 96px;
-        padding-top: env(safe-area-inset-top, 96px);
-      }
     }
 
     @media (min-width: 1280px) {
+      @supports (padding-top: env(safe-area-inset-top)) {
+        body {
+          padding-top: calc(108px + env(safe-area-inset-top));
+        }
+      }
       .app {
         padding: 0 48px 100px;
       }
@@ -449,10 +464,6 @@
         height: 38px;
         font-size: 1.5rem;
       }
-      body {
-        padding-top: 108px;
-        padding-top: env(safe-area-inset-top, 108px);
-      }
     }
 
     @media (min-width: 1920px) {
@@ -465,10 +476,6 @@
       }
       .logo {
         height: 42px;
-      }
-      body {
-        padding-top: 116px;
-        padding-top: env(safe-area-inset-top, 116px);
       }
     }
 
@@ -507,14 +514,14 @@
       font-size: 1.1rem;
     }
   </style>
+<base target="_blank">
 </head>
 <body>
-<div class="app" id="app">
 
-  <!-- HEADER (fixed) -->
+  <!-- HEADER (fixed, вынесен за пределы .app) -->
   <header class="header">
     <div class="logo-area">
-      <img src="images/logo.png" alt="ТС Волгоградская" class="logo" id="logoImg" onerror="this.style.display='none'">
+      <img src="images/logo.png" alt="ТС Волгоградская" class="logo" id="logoImg">
     </div>
     <div class="header-title">ТС ВОЛГОГРАДСКАЯ, 86</div>
     <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
@@ -522,203 +529,209 @@
     </button>
   </header>
 
-  <!-- TABS -->
-  <div id="tabContacts" class="tab-content active">
-    <!-- card 1 -->
-    <div class="card">
-      <div class="card-title">РАЗВИН ИВАН ЮРЬЕВИЧ</div>
-      <div class="card-sub">Председатель правления</div>
-      <div class="phone-block">
-        <a href="tel:+375296533913" class="phone-link">📞 +375-29-653-39-13</a>
-        <a href="tg://resolve?domain=817354039" class="telegram-link">✉️ Написать в Телеграм</a>
+  <div class="app" id="app">
+
+    <!-- TABS -->
+    <div id="tabContacts" class="tab-content active">
+      <!-- card 1 -->
+      <div class="card">
+        <div class="card-title">РАЗВИН ИВАН ЮРЬЕВИЧ</div>
+        <div class="card-sub">Председатель правления</div>
+        <div class="phone-block">
+          <a href="tel:+375296533913" class="phone-link">📞 +375-29-653-39-13</a>
+          <a href="tg://resolve?domain=817354039" class="telegram-link">✉️ Написать в Телеграм</a>
+        </div>
+        <p style="margin-top: 6px;"><span class="badge">🗓 Приемный день</span> каждый вторник 18:30 – 20:30</p>
       </div>
-      <p style="margin-top: 6px;"><span class="badge">🗓 Приемный день</span> каждый вторник 18:30 – 20:30</p>
-    </div>
 
-    <!-- card 2 -->
-    <div class="card">
-      <div class="card-title">АЛЬХОВСКАЯ ЕКАТЕРИНА ДМИТРИЕВНА</div>
-      <div class="card-sub">Главный бухгалтер</div>
-      <div class="phone-block">
-        <a href="tel:+375336014688" class="phone-link">📞 +375-33-601-46-88</a>
-        <span class="telegram-link" style="opacity:0.6; background: #eaf0f8; border-color:#bcc8d8;">✉️ Написать в Телеграм</span>
+      <!-- card 2 -->
+      <div class="card">
+        <div class="card-title">АЛЬХОВСКАЯ ЕКАТЕРИНА ДМИТРИЕВНА</div>
+        <div class="card-sub">Главный бухгалтер</div>
+        <div class="phone-block">
+          <a href="tel:+375336014688" class="phone-link">📞 +375-33-601-46-88</a>
+          <span class="telegram-link" style="opacity:0.6; background: #eaf0f8; border-color:#bcc8d8;">✉️ Написать в Телеграм</span>
+        </div>
+      </div>
+
+      <!-- card 3 -->
+      <div class="card">
+        <div class="card-title">Члены Правления</div>
+        <div class="member-grid">
+          <span>Бирюк Ольга Юрьевна</span>
+          <span>Гулевич Людмила Владимировна</span>
+          <span>Жариков Алексей Алексеевич</span>
+          <span>Кладиенко Алла Леонидовна</span>
+        </div>
       </div>
     </div>
 
-    <!-- card 3 -->
-    <div class="card">
-      <div class="card-title">Члены Правления</div>
-      <div class="member-grid">
-        <span>Бирюк Ольга Юрьевна</span>
-        <span>Гулевич Людмила Владимировна</span>
-        <span>Жариков Алексей Алексеевич</span>
-        <span>Кладиенко Алла Леонидовна</span>
+    <!-- TAB SERVICES -->
+    <div id="tabServices" class="tab-content">
+      <div class="card">
+        <div class="card-title">Техническое обслуживание</div>
+        <p><strong>«Коммунспецсервис»</strong></p>
+        <p>Диспетчерская (заявки): будние дни 09:00–18:00</p>
+        <p>Аварийная (сантехника/электрика): рабочие дни 18:00–09:00</p>
+        <div class="phone-block"><a href="tel:+375293950797" class="phone-link">📞 +375-29-395-07-97</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Обслуживание домофонов «ВИДЕОГОРОД»</div>
+        <div class="phone-block"><a href="tel:+375173886330" class="phone-link">📞 +375-17-388-63-30</a></div>
+        <div class="phone-block"><a href="tel:+375333329747" class="phone-link">📞 +375-33-332-97-47</a> (МТС)</div>
+        <div class="phone-block"><a href="tel:+375445163221" class="phone-link">📞 +375-44-516-32-21</a> (А1)</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Диспетчер городской аварийной службы</div>
+        <div class="phone-block"><span class="badge">короткий</span> <strong>165</strong></div>
+        <div class="phone-block"><a href="tel:+375172922213" class="phone-link">📞 +375-17-292-22-13</a></div>
+        <div class="phone-block"><a href="tel:+375172922568" class="phone-link">📞 +375-17-292-25-68</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">ООО «Беллифт» (ремонт лифтов)</div>
+        <div class="phone-block"><span class="badge">короткий</span> <strong>115</strong></div>
+        <div class="phone-block"><a href="tel:+375173113939" class="phone-link">📞 +375-17-311-39-39</a></div>
+        <div class="phone-block"><a href="tel:+375291153939" class="phone-link">📞 +375-29-115-39-39</a></div>
+        <div class="phone-block">для СМС: <a href="tel:+375296876202" class="phone-link">📞 +375-29-687-62-02</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">УП «Техносвязь» (пожарная сигнализация)</div>
+        <div class="phone-block"><a href="tel:+375173565297" class="phone-link">📞 +375-17-356-52-97</a></div>
+        <div class="phone-block"><a href="tel:+375293722132" class="phone-link">📞 +375-29-372-21-32</a></div>
+        <div class="phone-block"><a href="tel:+375297036633" class="phone-link">📞 +375-29-703-66-33</a></div>
       </div>
     </div>
+
+    <!-- TAB PAYMENTS -->
+    <div id="tabPayments" class="tab-content">
+      <div class="card">
+        <div class="card-title">Ежемесячный членский взнос</div>
+        <p><strong>Путь в ЕРИП:</strong></p>
+        <p>Система «Расчёт» (ЕРИП) → Коммунальные платежи → Товарищества собственников → г. Минск → Первомайский район → Волгоградская, 86 → Членские взносы → Лицевой счёт (№ квартиры).</p>
+        <p><span class="badge">Код услуги</span> <strong>5272851</strong> Членские взносы</p>
+        <p>Оплата до <strong>25 числа</strong>.</p>
+        <p>Тариф: <strong>0,68 руб/м²</strong> (Протокол от 21.10.2025)</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Коммунальные платежи (квитанция РСЦ)</div>
+        <p><strong>Путь в ЕРИП:</strong></p>
+        <p>Система «Расчёт» (ЕРИП) / Коммунальные платежи / Жилищно-коммунальные услуги / Минск / Центр ИТ Мингорисполкома / Платежи ТС ЖСПК АИС Расчёт-ЖКУ / Лицевой счёт.</p>
+        <p><span class="badge">Код услуги</span> <strong>4420861</strong></p>
+        <p>Оплата до <strong>25 числа</strong>.</p>
+      </div>
+    </div>
+
+    <!-- TAB DOCUMENTS -->
+    <div id="tabDocuments" class="tab-content">
+      <div class="card">
+        <div class="card-title">УСТАВ</div>
+        <a href="documents/ustav.pdf" target="_blank" class="doc-link">📄 Посмотреть / Скачать</a>
+      </div>
+      <div class="card">
+        <div class="card-title">Протокол собрания от 21.10.2025</div>
+        <a href="documents/protocol-2025-10-21.pdf" target="_blank" class="doc-link">📄 Посмотреть / Скачать</a>
+      </div>
+    </div>
+
+    <!-- bottom nav -->
+    <nav class="nav" id="bottomNav">
+      <button class="nav-btn active" data-tab="tabContacts" aria-current="page">КОНТАКТЫ</button>
+      <button class="nav-btn" data-tab="tabServices">СЛУЖБЫ</button>
+      <button class="nav-btn" data-tab="tabPayments">ПЛАТЕЖИ</button>
+      <button class="nav-btn" data-tab="tabDocuments">ДОКУМЕНТЫ</button>
+    </nav>
   </div>
 
-  <!-- TAB SERVICES -->
-  <div id="tabServices" class="tab-content">
-    <div class="card">
-      <div class="card-title">Техническое обслуживание</div>
-      <p><strong>«Коммунспецсервис»</strong></p>
-      <p>Диспетчерская (заявки): будние дни 09:00–18:00</p>
-      <p>Аварийная (сантехника/электрика): рабочие дни 18:00–09:00</p>
-      <div class="phone-block"><a href="tel:+375293950797" class="phone-link">📞 +375-29-395-07-97</a></div>
-    </div>
+  <script>
+    (function() {
+      // theme
+      const toggleBtn = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
 
-    <div class="card">
-      <div class="card-title">Обслуживание домофонов «ВИДЕОГОРОД»</div>
-      <div class="phone-block"><a href="tel:+375173886330" class="phone-link">📞 +375-17-388-63-30</a></div>
-      <div class="phone-block"><a href="tel:+375333329747" class="phone-link">📞 +375-33-332-97-47</a> (МТС)</div>
-      <div class="phone-block"><a href="tel:+375445163221" class="phone-link">📞 +375-44-516-32-21</a> (А1)</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Диспетчер городской аварийной службы</div>
-      <div class="phone-block"><span class="badge">короткий</span> <strong>165</strong></div>
-      <div class="phone-block"><a href="tel:+375172922213" class="phone-link">📞 +375-17-292-22-13</a></div>
-      <div class="phone-block"><a href="tel:+375172922568" class="phone-link">📞 +375-17-292-25-68</a></div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">ООО «Беллифт» (ремонт лифтов)</div>
-      <div class="phone-block"><span class="badge">короткий</span> <strong>115</strong></div>
-      <div class="phone-block"><a href="tel:+375173113939" class="phone-link">📞 +375-17-311-39-39</a></div>
-      <div class="phone-block"><a href="tel:+375291153939" class="phone-link">📞 +375-29-115-39-39</a></div>
-      <div class="phone-block">для СМС: <a href="tel:+375296876202" class="phone-link">📞 +375-29-687-62-02</a></div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">УП «Техносвязь» (пожарная сигнализация)</div>
-      <div class="phone-block"><a href="tel:+375173565297" class="phone-link">📞 +375-17-356-52-97</a></div>
-      <div class="phone-block"><a href="tel:+375293722132" class="phone-link">📞 +375-29-372-21-32</a></div>
-      <div class="phone-block"><a href="tel:+375297036633" class="phone-link">📞 +375-29-703-66-33</a></div>
-    </div>
-  </div>
-
-  <!-- TAB PAYMENTS -->
-  <div id="tabPayments" class="tab-content">
-    <div class="card">
-      <div class="card-title">Ежемесячный членский взнос</div>
-      <p><strong>Путь в ЕРИП:</strong></p>
-      <p>Система «Расчёт» (ЕРИП) → Коммунальные платежи → Товарищества собственников → г. Минск → Первомайский район → Волгоградская, 86 → Членские взносы → Лицевой счёт (№ квартиры).</p>
-      <p><span class="badge">Код услуги</span> <strong>5272851</strong> Членские взносы</p>
-      <p>Оплата до <strong>25 числа</strong>.</p>
-      <p>Тариф: <strong>0,68 руб/м²</strong> (Протокол от 21.10.2025)</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Коммунальные платежи (квитанция РСЦ)</div>
-      <p><strong>Путь в ЕРИП:</strong></p>
-      <p>Система «Расчёт» (ЕРИП) / Коммунальные платежи / Жилищно-коммунальные услуги / Минск / Центр ИТ Мингорисполкома / Платежи ТС ЖСПК АИС Расчёт-ЖКУ / Лицевой счёт.</p>
-      <p><span class="badge">Код услуги</span> <strong>4420861</strong></p>
-      <p>Оплата до <strong>25 числа</strong>.</p>
-    </div>
-  </div>
-
-  <!-- TAB DOCUMENTS -->
-  <div id="tabDocuments" class="tab-content">
-    <div class="card">
-      <div class="card-title">УСТАВ</div>
-      <a href="documents/ustav.pdf" target="_blank" class="doc-link">📄 Посмотреть / Скачать</a>
-    </div>
-    <div class="card">
-      <div class="card-title">Протокол собрания от 21.10.2025</div>
-      <a href="documents/protocol-2025-10-21.pdf" target="_blank" class="doc-link">📄 Посмотреть / Скачать</a>
-    </div>
-  </div>
-
-  <!-- bottom nav -->
-  <nav class="nav" id="bottomNav">
-    <button class="nav-btn active" data-tab="tabContacts">КОНТАКТЫ</button>
-    <button class="nav-btn" data-tab="tabServices">СЛУЖБЫ</button>
-    <button class="nav-btn" data-tab="tabPayments">ПЛАТЕЖИ</button>
-    <button class="nav-btn" data-tab="tabDocuments">ДОКУМЕНТЫ</button>
-  </nav>
-</div>
-
-<script>
-  (function() {
-    // theme
-    const toggleBtn = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const body = document.body;
-
-    function setTheme(dark) {
-      if (dark) {
-        body.classList.add('dark');
-        themeIcon.textContent = '☀️';
-      } else {
-        body.classList.remove('dark');
-        themeIcon.textContent = '🌙';
+      function setTheme(dark) {
+        if (dark) {
+          body.classList.add('dark');
+          themeIcon.textContent = '☀️';
+        } else {
+          body.classList.remove('dark');
+          themeIcon.textContent = '🌙';
+        }
+        localStorage.setItem('ts-theme', dark ? 'dark' : 'light');
       }
-      localStorage.setItem('ts-theme', dark ? 'dark' : 'light');
-    }
 
-    const stored = localStorage.getItem('ts-theme');
-    if (stored === 'dark') {
-      setTheme(true);
-    } else if (stored === 'light') {
-      setTheme(false);
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme(true);
-    } else {
-      setTheme(false);
-    }
+      const stored = localStorage.getItem('ts-theme');
+      if (stored === 'dark') {
+        setTheme(true);
+      } else if (stored === 'light') {
+        setTheme(false);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme(true);
+      } else {
+        setTheme(false);
+      }
 
-    toggleBtn.addEventListener('click', function() {
-      const isDark = body.classList.contains('dark');
-      setTheme(!isDark);
-    });
+      toggleBtn.addEventListener('click', function() {
+        const isDark = body.classList.contains('dark');
+        setTheme(!isDark);
+      });
 
-    // tabs
-    const navBtns = document.querySelectorAll('.nav-btn');
-    const tabs = {
-      tabContacts: document.getElementById('tabContacts'),
-      tabServices: document.getElementById('tabServices'),
-      tabPayments: document.getElementById('tabPayments'),
-      tabDocuments: document.getElementById('tabDocuments')
-    };
+      // tabs
+      const navBtns = document.querySelectorAll('.nav-btn');
+      const tabs = {
+        tabContacts: document.getElementById('tabContacts'),
+        tabServices: document.getElementById('tabServices'),
+        tabPayments: document.getElementById('tabPayments'),
+        tabDocuments: document.getElementById('tabDocuments')
+      };
 
-    function activateTab(tabId) {
-      Object.values(tabs).forEach(t => t.classList.remove('active'));
-      const target = tabs[tabId];
-      if (target) target.classList.add('active');
+      function activateTab(tabId) {
+        Object.values(tabs).forEach(t => t.classList.remove('active'));
+        const target = tabs[tabId];
+        if (target) target.classList.add('active');
+        navBtns.forEach(btn => {
+          btn.classList.remove('active');
+          btn.removeAttribute('aria-current');
+          if (btn.dataset.tab === tabId) {
+            btn.classList.add('active');
+            btn.setAttribute('aria-current', 'page');
+          }
+        });
+      }
+
       navBtns.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.tab === tabId) btn.classList.add('active');
+        btn.addEventListener('click', function(e) {
+          const tabId = this.dataset.tab;
+          if (tabId) activateTab(tabId);
+        });
       });
-    }
 
-    navBtns.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        const tabId = this.dataset.tab;
+      const activeNav = document.querySelector('.nav-btn.active');
+      if (activeNav) {
+        const tabId = activeNav.dataset.tab;
         if (tabId) activateTab(tabId);
-      });
-    });
+      } else {
+        activateTab('tabContacts');
+      }
 
-    const activeNav = document.querySelector('.nav-btn.active');
-    if (activeNav) {
-      const tabId = activeNav.dataset.tab;
-      if (tabId) activateTab(tabId);
-    } else {
-      activateTab('tabContacts');
-    }
+      // PWA
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      }
 
-    // PWA
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(() => {});
-    }
-
-    // logo fallback
-    const logo = document.getElementById('logoImg');
-    if (logo) {
-      logo.addEventListener('error', function() {
-        this.style.display = 'none';
-      });
-    }
-  })();
-</script>
+      // logo fallback
+      const logo = document.getElementById('logoImg');
+      if (logo) {
+        logo.addEventListener('error', function() {
+          this.style.display = 'none';
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
