@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>ТС Волгоградская, 86</title>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1a202c">
+  <meta name="theme-color" content="#1e293b">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.png">
   <style>
     * {
       margin: 0;
@@ -19,8 +19,8 @@
     }
 
     body {
-      background: #e2e8f0;
-      color: #1a202c;
+      background: #d5dce6;
+      color: #0a0f1a;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -35,8 +35,8 @@
     }
 
     body.dark {
-      background: #0f1419;
-      color: #f1f5f9;
+      background: #060b16;
+      color: #e8edf4;
     }
 
     /* FIXED HEADER */
@@ -46,7 +46,7 @@
       left: 0;
       right: 0;
       z-index: 200;
-      background: #cbd5e1;
+      background: #b8c4d4;
       padding: 8px 16px;
       padding-top: env(safe-area-inset-top, 8px);
       display: flex;
@@ -64,7 +64,7 @@
     }
 
     body.dark .header {
-      background: #1e293b;
+      background: #0d1424;
       box-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
 
@@ -87,7 +87,6 @@
       max-width: 80px;
       object-fit: contain;
       display: block;
-      border-radius: 6px;
     }
 
     .header-title {
@@ -100,11 +99,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
       min-width: 0;
-      color: #1a202c;
+      color: #0a0f1a;
     }
 
     body.dark .header-title {
-      color: #f1f5f9;
+      color: #e8edf4;
     }
 
     .theme-toggle {
@@ -115,8 +114,8 @@
       padding: 4px 6px;
       border-radius: 40px;
       line-height: 1;
-      color: #1a202c;
-      background: #e2e8f0;
+      color: #0a0f1a;
+      background: #d5dce6;
       width: 30px;
       height: 30px;
       display: flex;
@@ -128,8 +127,8 @@
     }
 
     body.dark .theme-toggle {
-      background: #334155;
-      color: #fbbf24;
+      background: #1f2a40;
+      color: #facc15;
       box-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
 
@@ -145,7 +144,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: #cbd5e1;
+      background: #b8c4d4;
       padding: 6px 0 env(safe-area-inset-bottom);
       z-index: 100;
       box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
@@ -156,7 +155,7 @@
     }
 
     body.dark .nav {
-      background: #1e293b;
+      background: #0d1424;
       box-shadow: 0 -2px 12px rgba(0,0,0,0.3);
     }
 
@@ -166,7 +165,7 @@
       padding: 6px 4px 4px;
       font-weight: 700;
       font-size: 0.7rem;
-      color: #475569;
+      color: #1a2a4a;
       letter-spacing: 0.3px;
       cursor: pointer;
       border-bottom: 3px solid transparent;
@@ -178,17 +177,17 @@
     }
 
     body.dark .nav-btn {
-      color: #94a3b8;
+      color: #7a8aa0;
     }
 
     .nav-btn.active {
-      color: #991b1b;
-      border-bottom-color: #c41e3a;
+      color: #0a1a3a;
+      border-bottom-color: #1a4cbf;
     }
 
     body.dark .nav-btn.active {
-      color: #f87171;
-      border-bottom-color: #f87171;
+      color: #5b9eff;
+      border-bottom-color: #5b9eff;
     }
 
     .nav-btn:active {
@@ -212,18 +211,18 @@
 
     /* CARDS */
     .card {
-      background: #ffffff;
+      background: #f8faff;
       border-radius: 20px;
       padding: 20px 18px;
       margin-bottom: 24px;
       box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), 0 3px 12px rgba(0, 0, 0, 0.05);
-      border: 1px solid #cbd5e1;
+      border: 1px solid #bcc8d8;
       transition: 0.2s;
     }
 
     body.dark .card {
-      background: #1e293b;
-      border-color: #334155;
+      background: #141e30;
+      border-color: #25324a;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 3px 16px rgba(0, 0, 0, 0.2);
     }
 
@@ -231,32 +230,32 @@
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 6px;
-      color: #1a202c;
+      color: #0a0f1a;
     }
 
     body.dark .card-title {
-      color: #f1f5f9;
+      color: #e8edf4;
     }
 
     .card-sub {
       font-weight: 600;
-      color: #475569;
+      color: #2a3a52;
       margin-top: 4px;
     }
 
     body.dark .card-sub {
-      color: #94a3b8;
+      color: #b0c4db;
     }
 
     .card p, .card li {
       line-height: 1.6;
       margin: 6px 0;
-      color: #334155;
+      color: #1a2538;
     }
 
     body.dark .card p,
     body.dark .card li {
-      color: #cbd5e1;
+      color: #c8d6e8;
     }
 
     .card ul {
@@ -265,13 +264,13 @@
     }
 
     .card a {
-      color: #c41e3a;
+      color: #1a4cbf;
       text-decoration: none;
       font-weight: 600;
     }
 
     body.dark .card a {
-      color: #f87171;
+      color: #5b9eff;
     }
 
     .phone-block {
@@ -286,67 +285,67 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #f1f5f9;
+      background: #eaf0f8;
       padding: 4px 14px 4px 12px;
       border-radius: 40px;
       font-weight: 600;
-      color: #1a202c !important;
-      border: 1px solid #cbd5e1;
+      color: #0a0f1a !important;
+      border: 1px solid #bcc8d8;
       transition: 0.15s;
       font-size: 0.95rem;
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
 
     body.dark .phone-link {
-      background: #334155;
-      border-color: #475569;
-      color: #f1f5f9 !important;
+      background: #1f2a40;
+      border-color: #3a4a62;
+      color: #e8edf4 !important;
       box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     }
 
     .phone-link:hover {
-      background: #e2e8f0;
+      background: #d5dce6;
       transform: scale(1.02);
     }
 
     body.dark .phone-link:hover {
-      background: #475569;
+      background: #2a3a52;
     }
 
     .telegram-link {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      background: #fef2f2;
+      background: #dce8ff;
       padding: 4px 16px 4px 12px;
       border-radius: 40px;
       font-weight: 600;
-      color: #991b1b !important;
-      border: 1px solid #fecaca;
+      color: #0f2a6a !important;
+      border: 1px solid #9bb8f0;
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
 
     body.dark .telegram-link {
-      background: #451a1a;
-      border-color: #7f1d1d;
-      color: #fca5a5 !important;
+      background: #162a50;
+      border-color: #2a4a7a;
+      color: #8bb8ff !important;
       box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     }
 
     .badge {
-      background: #fef2f2;
-      color: #991b1b;
+      background: #dce8ff;
+      color: #0f2a6a;
       padding: 2px 12px;
       border-radius: 30px;
       font-size: 0.8rem;
       font-weight: 700;
-      border: 1px solid #fecaca;
+      border: 1px solid #9bb8f0;
     }
 
     body.dark .badge {
-      background: #451a1a;
-      color: #fca5a5;
-      border-color: #7f1d1d;
+      background: #162a50;
+      color: #8bb8ff;
+      border-color: #2a4a7a;
     }
 
     .member-grid {
@@ -488,28 +487,28 @@
     .doc-link {
       display: inline-block;
       margin-top: 8px;
-      background: #f1f5f9;
+      background: #eaf0f8;
       padding: 8px 20px;
       border-radius: 40px;
-      border: 1px solid #cbd5e1;
+      border: 1px solid #bcc8d8;
       font-weight: 600;
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
 
     body.dark .doc-link {
-      background: #334155;
-      border-color: #475569;
+      background: #1f2a40;
+      border-color: #3a4a62;
       box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     }
 
     .separator {
       border: none;
-      border-top: 1px dashed #cbd5e1;
+      border-top: 1px dashed #bcc8d8;
       margin: 18px 0 12px;
     }
 
     body.dark .separator {
-      border-top-color: #475569;
+      border-top-color: #2a3a52;
     }
 
     .footer-spacer {
@@ -524,9 +523,10 @@
 </head>
 <body>
 
+  <!-- HEADER (fixed, вынесен за пределы .app) -->
   <header class="header">
     <div class="logo-area">
-      <img src="images/logo.jpg" alt="ТС Волгоградская" class="logo" id="logoImg">
+      <img src="images/logo.png" alt="ТС Волгоградская" class="logo" id="logoImg">
     </div>
     <div class="header-title">ТС ВОЛГОГРАДСКАЯ, 86</div>
     <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
@@ -536,26 +536,30 @@
 
   <div class="app" id="app">
 
+    <!-- TABS -->
     <div id="tabContacts" class="tab-content active">
+      <!-- card 1 -->
       <div class="card">
         <div class="card-title">РАЗВИН ИВАН ЮРЬЕВИЧ</div>
         <div class="card-sub">Председатель правления</div>
         <div class="phone-block">
           <a href="tel:+375296533913" class="phone-link">📞 +375-29-653-39-13</a>
-          <a href="https://t.me/user?id=817354039" class="telegram-link">✉️ Написать в Телеграм</a>
+          <a href="tg://resolve?domain=817354039" class="telegram-link">✉️ Написать в Телеграм</a>
         </div>
         <p style="margin-top: 6px;"><span class="badge">🗓 Приемный день</span> каждый вторник 18:30 – 20:30</p>
       </div>
 
+      <!-- card 2 -->
       <div class="card">
         <div class="card-title">АЛЬХОВСКАЯ ЕКАТЕРИНА ДМИТРИЕВНА</div>
         <div class="card-sub">Главный бухгалтер</div>
         <div class="phone-block">
           <a href="tel:+375336014688" class="phone-link">📞 +375-33-601-46-88</a>
-          <span class="telegram-link" style="opacity:0.6; background: #f1f5f9; border-color:#cbd5e1;">✉️ Написать в Телеграм</span>
+          <span class="telegram-link" style="opacity:0.6; background: #eaf0f8; border-color:#bcc8d8;">✉️ Написать в Телеграм</span>
         </div>
       </div>
 
+      <!-- card 3 -->
       <div class="card">
         <div class="card-title">Члены Правления</div>
         <div class="member-grid">
@@ -567,6 +571,7 @@
       </div>
     </div>
 
+    <!-- TAB SERVICES -->
     <div id="tabServices" class="tab-content">
       <div class="card">
         <div class="card-title">Техническое обслуживание</div>
@@ -606,6 +611,7 @@
       </div>
     </div>
 
+    <!-- TAB PAYMENTS -->
     <div id="tabPayments" class="tab-content">
       <div class="card">
         <div class="card-title">Ежемесячный членский взнос</div>
@@ -625,6 +631,7 @@
       </div>
     </div>
 
+    <!-- TAB DOCUMENTS -->
     <div id="tabDocuments" class="tab-content">
       <div class="card">
         <div class="card-title">УСТАВ</div>
@@ -636,6 +643,7 @@
       </div>
     </div>
 
+    <!-- bottom nav -->
     <nav class="nav" id="bottomNav">
       <button class="nav-btn active" data-tab="tabContacts" aria-current="page">КОНТАКТЫ</button>
       <button class="nav-btn" data-tab="tabServices">СЛУЖБЫ</button>
@@ -646,6 +654,7 @@
 
   <script>
     (function() {
+      // theme
       const toggleBtn = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
       const body = document.body;
@@ -677,6 +686,7 @@
         setTheme(!isDark);
       });
 
+      // tabs
       const navBtns = document.querySelectorAll('.nav-btn');
       const tabs = {
         tabContacts: document.getElementById('tabContacts'),
@@ -714,10 +724,12 @@
         activateTab('tabContacts');
       }
 
+      // PWA
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js').catch(() => {});
       }
 
+      // logo fallback
       const logo = document.getElementById('logoImg');
       if (logo) {
         logo.addEventListener('error', function() {
