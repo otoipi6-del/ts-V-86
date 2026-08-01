@@ -505,6 +505,46 @@
       content: '▸';
     }
 
+    /* Floor list */
+    .floor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .floor-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      background: #eaf0f8;
+      border-radius: 14px;
+      border: 1px solid #bcc8d8;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    body.dark .floor-row {
+      background: #1f2a40;
+      border-color: #3a4a62;
+    }
+    .floor-num {
+      font-weight: 700;
+      color: #0a0f1a;
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+    body.dark .floor-num {
+      color: #e8edf4;
+    }
+    .floor-apt {
+      color: #1a2538;
+      text-align: right;
+      word-break: break-word;
+    }
+    body.dark .floor-apt {
+      color: #c8d6e8;
+    }
+
     /* Two-column layout on tablet/desktop */
     @media (min-width: 768px) {
       .tab-content.active.two-col {
@@ -565,6 +605,13 @@
       .nav-btn {
         font-size: 0.6rem;
         padding: 4px 2px 3px;
+      }
+      .floor-row {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      .floor-num {
+        min-width: 70px;
       }
     }
 
@@ -861,7 +908,19 @@
     <div id="tabInfo" class="tab-content two-col">
       <div class="card">
         <div class="card-title">Расположение квартир на этажах дома</div>
-        <p>Здесь будет размещена схема расположения квартир на этажах.</p>
+        <div class="floor-list">
+          <div class="floor-row"><span class="floor-num">1 этаж</span><span class="floor-apt">1, 2, 3, 4, 5, 6</span></div>
+          <div class="floor-row"><span class="floor-num">2 этаж</span><span class="floor-apt">7, 8, 9, 10, 11, 12, 13</span></div>
+          <div class="floor-row"><span class="floor-num">3 этаж</span><span class="floor-apt">14, 15, 16, 17, 18, 19, 20</span></div>
+          <div class="floor-row"><span class="floor-num">4 этаж</span><span class="floor-apt">21, 22, 23, 24, 25, 26, 27</span></div>
+          <div class="floor-row"><span class="floor-num">5 этаж</span><span class="floor-apt">28, 29, 30, 31, 32, 33, 34</span></div>
+          <div class="floor-row"><span class="floor-num">6 этаж</span><span class="floor-apt">35, 36, 37, 38, 39, 40, 41</span></div>
+          <div class="floor-row"><span class="floor-num">7 этаж</span><span class="floor-apt">42, 43, 44, 45, 46, 47, 48</span></div>
+          <div class="floor-row"><span class="floor-num">8 этаж</span><span class="floor-apt">49, 50, 51, 52, 53, 54, 55</span></div>
+          <div class="floor-row"><span class="floor-num">9 этаж</span><span class="floor-apt">56, 57, 58, 59, 60, 61, 62</span></div>
+          <div class="floor-row"><span class="floor-num">10 этаж</span><span class="floor-apt">63, 64, 65, 66, 67, 68, 69</span></div>
+          <div class="floor-row"><span class="floor-num">11 этаж</span><span class="floor-apt">70</span></div>
+        </div>
       </div>
     </div>
 
