@@ -154,12 +154,13 @@
       transform: scale(1.05);
     }
 
-    /* HAMBURGER — centered, closer to header */
+    /* HAMBURGER — centered, flush with header */
     .hamburger-bar {
       display: flex;
       justify-content: center;
-      padding: 4px 0 18px;
+      padding: 0;
       position: relative;
+      margin-top: -24px;
     }
 
     .hamburger-wrapper {
@@ -526,6 +527,9 @@
           padding-top: calc(58px + env(safe-area-inset-top));
         }
       }
+      .hamburger-bar {
+        margin-top: -14px;
+      }
       .member-grid {
         grid-template-columns: 1fr;
       }
@@ -722,7 +726,7 @@
 
   <div class="app" id="app">
 
-    <!-- HAMBURGER MENU — centered, closer to header -->
+    <!-- HAMBURGER MENU — centered, flush with header -->
     <div class="hamburger-bar">
       <div class="hamburger-wrapper">
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="Меню">☰</button>
